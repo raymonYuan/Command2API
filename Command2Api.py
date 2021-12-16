@@ -48,6 +48,7 @@ class ServerHandler(BaseHTTPRequestHandler):
 			self.wfile.write(msg.encode())
 
 if __name__ == '__main__':
+	print("***Command2API for local LDAP check***")
 	print("Usage:python3 Command2Api.py yourCommand APIPort")
 	t1 = thread('1', sys.argv[1])
 	t1.start()
