@@ -10,7 +10,13 @@
 
 ​	由于内网环境没有Dnslog等平台使用，通过将LDAP的日志信息输出至HTTP端口，实现无需Dnslog等环境检测log4j2、fastjson等漏洞，检测JNDI请求情况 。
 
+## 与原项目的区别
 
+- 改成了python3版本
+- 增加了请求API接口，方便对接适配log4j2scan 的burp插件
+
+- log4j2scan项目地址
+https://github.com/whwlsfb/Log4j2Scan
 
 ## 使用方法
 
