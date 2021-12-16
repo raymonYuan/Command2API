@@ -1,22 +1,25 @@
-# Command2API
+# Command2API for Localldap Check
 
-**作者**：key@元亨实验室
+**作者**：gh0stkey
 
-**简介**：这是一个可以实时获取执行命令结果的脚本，脚本原理就是一个线程开启Web服务，一个线程执行命令，通过全局变量与Web服务共享执行命令的结果。
+#### **原项目链接：**https://github.com/gh0stkey/Command2API
 
-**举例说明**：以近期Log4j的RCE举例，在内网的安全测试中，由于网络环境限制导致没有DNSLog平台可用，这时候做Log4j的漏洞验证就考虑直接查看LDAP服务是否有连接进来，但是现成的JNDI注入工具开启服务并没有API可以直接拉取对应服务的结果，这就导致需要人工去查看，很费时间，再加上已经写好BurpSuite被动插件进行扫描了，为了节省时间就简单写了这个脚本用于获取JNDI工具的执行结果并通过API的形式返回，便于插件拉取结果进行漏洞验证。
 
-![](images/1.png)
+
+## 简介
+
+​	由于内网环境没有Dnslog等平台使用，通过将LDAP的日志信息输出至HTTP端口，实现无需Dnslog等环境检测log4j2、fastjson等漏洞，检测JNDI请求情况 。
+
+
 
 ## 使用方法
 
 执行命令：
 
 ```shell
-python Command2Api.py "执行的命令" Web运行的端口
+- python3 Command2Api.py "执行的命令" Web运行的端口
 ```
+![image-20211216173610942](https://user-images.githubusercontent.com/26023094/146347357-39f06dfa-0301-4804-b211-f9fea7c949d6.png)
+- 接着在命令中会输出对应的URL，替换127.0.0.1访问即可获取：
 
-接着在命令中会输出对应的URL，替换HOST访问即可获取：
-
-![](images/0.png)
-
+![image](https://user-images.githubusercontent.com/26023094/146347403-e1c1d3c8-cf01-49f5-85ed-438eb942a214.png)
